@@ -1,0 +1,132 @@
+/* ─────────────────────────────────────────────────────────────
+   MILO PORTFOLIO — Base Styles
+   ───────────────────────────────────────────────────────────── */
+
+html {
+  font-size: 16px;
+}
+
+body {
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-body);
+  font-size: var(--fs-base);
+  font-weight: var(--fw-regular);
+  line-height: var(--lh-base);
+  overflow-x: hidden;
+}
+
+/* ── SCROLLBAR ────────────────────────────────────────────── */
+::-webkit-scrollbar {
+  width: 4px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-bg);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-accent-dark);
+  border-radius: var(--radius-full);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-accent);
+}
+
+/* ── TIPOGRAFÍA BASE ─────────────────────────────────────── */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
+  font-weight: var(--fw-regular); /* Bebas Neue tiene un solo peso */
+  letter-spacing: var(--ls-wide);
+  line-height: var(--lh-tight);
+  color: var(--color-text);
+}
+
+.section-title {
+  font-family: var(--font-display);
+  font-size: var(--fs-3xl);
+  letter-spacing: var(--ls-wider);
+  text-transform: uppercase;
+  color: var(--color-text);
+  position: relative;
+  display: inline-block;
+  margin-bottom: var(--space-12);
+}
+
+.section-title::after {
+  content: '';
+  display: block;
+  width: 3rem;
+  height: 3px;
+  background: var(--color-accent);
+  margin-top: var(--space-3);
+}
+
+/* ── LAYOUT / CONTENEDORES ───────────────────────────────── */
+.container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 var(--content-padding);
+}
+
+section {
+  position: relative;
+  padding: var(--space-24) 0;
+}
+
+/* ── SELECTION ───────────────────────────────────────────── */
+::selection {
+  background: var(--color-accent);
+  color: #fff;
+}
+
+/* ── FOCUS VISIBLE ───────────────────────────────────────── */
+:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 3px;
+  border-radius: var(--radius-sm);
+}
+
+/* ── DIVIDER ─────────────────────────────────────────────── */
+.divider {
+  width: 100%;
+  height: 1px;
+  background: var(--color-border);
+  margin: var(--space-16) 0;
+}
+
+/* ── TAGS / BADGES ───────────────────────────────────────── */
+.tag {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1);
+  padding: var(--space-1) var(--space-3);
+  background: var(--color-surface-3);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-full);
+  font-family: var(--font-body);
+  font-size: var(--fs-xs);
+  font-weight: var(--fw-medium);
+  letter-spacing: var(--ls-wide);
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+  transition: all var(--transition-base);
+}
+
+.tag:hover {
+  border-color: var(--color-border-hover);
+  color: var(--color-text);
+}
+
+/* ── UTILS ───────────────────────────────────────────────── */
+.text-accent    { color: var(--color-accent); }
+.text-warm      { color: var(--color-warm); }
+.text-muted     { color: var(--color-text-muted); }
+.text-display   { font-family: var(--font-display); }
+.uppercase      { text-transform: uppercase; }
+.sr-only {
+  position: absolute;
+  width: 1px; height: 1px;
+  padding: 0; margin: -1px;
+  overflow: hidden;
+  clip: rect(0,0,0,0);
+  border: 0;
+}
