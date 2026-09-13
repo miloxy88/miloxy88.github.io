@@ -1,0 +1,272 @@
+/* ─────────────────────────────────────────────────────────────
+   MILO PORTFOLIO — Social Links Section
+   ───────────────────────────────────────────────────────────── */
+
+#socials {
+  background: var(--color-bg);
+  border-top: 1px solid var(--color-border);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Decoración de fondo */
+#socials::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 600px;
+  height: 600px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(192,57,43,0.04) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.socials-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-5);
+  margin-top: var(--space-4);
+}
+
+/* ── SOCIAL CARD ─────────────────────────────────────────────── */
+.social-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: var(--space-4);
+  padding: var(--space-10) var(--space-6);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  text-decoration: none;
+  position: relative;
+  overflow: hidden;
+  transition:
+    transform var(--transition-spring),
+    box-shadow var(--transition-base),
+    border-color var(--transition-base),
+    background var(--transition-base);
+  cursor: pointer;
+}
+
+/* Fondo de color al hover */
+.social-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--social-color, var(--color-accent));
+  opacity: 0;
+  transition: opacity var(--transition-base);
+}
+
+/* Glow inferior */
+.social-card::after {
+  content: '';
+  position: absolute;
+  bottom: -30px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80%;
+  height: 60px;
+  border-radius: 50%;
+  background: var(--social-color, var(--color-accent));
+  filter: blur(20px);
+  opacity: 0;
+  transition: opacity var(--transition-base);
+}
+
+.social-card:hover {
+  transform: translateY(-8px) scale(1.02);
+  border-color: var(--social-color, var(--color-accent));
+  box-shadow:
+    0 20px 40px rgba(0,0,0,0.5),
+    0 0 0 1px var(--social-color, var(--color-accent));
+}
+
+.social-card:hover::before {
+  opacity: 0.06;
+}
+
+.social-card:hover::after {
+  opacity: 0.25;
+}
+
+/* ── ICONO ──────────────────────────────────────────────────── */
+.social-icon-wrapper {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  font-size: 1.8rem;
+  transition: all var(--transition-spring);
+}
+
+.social-card:hover .social-icon-wrapper {
+  transform: scale(1.15) rotate(-5deg);
+  border-color: var(--social-color, var(--color-accent));
+  background: rgba(var(--social-color-rgb, 192,57,43), 0.1);
+}
+
+/* ── INFO ───────────────────────────────────────────────────── */
+.social-info {
+  position: relative;
+  z-index: 1;
+}
+
+.social-platform {
+  font-family: var(--font-display);
+  font-size: var(--fs-xl);
+  letter-spacing: var(--ls-wide);
+  color: var(--color-text);
+  text-transform: uppercase;
+  margin-bottom: var(--space-1);
+  transition: color var(--transition-base);
+}
+
+.social-card:hover .social-platform {
+  color: var(--social-color, var(--color-accent));
+}
+
+.social-handle {
+  font-size: var(--fs-sm);
+  color: var(--color-text-muted);
+  letter-spacing: var(--ls-wide);
+}
+
+/* ── FLECHA ─────────────────────────────────────────────────── */
+.social-arrow {
+  position: absolute;
+  top: var(--space-5);
+  right: var(--space-5);
+  font-size: var(--fs-sm);
+  color: var(--color-text-faint);
+  transition: all var(--transition-base);
+  z-index: 1;
+}
+
+.social-card:hover .social-arrow {
+  color: var(--social-color, var(--color-accent));
+  transform: translate(2px, -2px);
+}
+
+/* Colores por plataforma */
+.social-card.discord  { --social-color: var(--color-discord); }
+.social-card.instagram{ --social-color: var(--color-instagram); }
+.social-card.spotify  { --social-color: var(--color-spotify); }
+
+/* ── PROMO DISCORD SERVER ───────────────────────────────────── */
+#discord-promo {
+  padding: var(--space-8) 0 var(--space-20);
+  background: var(--color-bg);
+}
+
+.discord-promo-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-8);
+  padding: var(--space-8) var(--space-10);
+  background: linear-gradient(135deg, rgba(20, 20, 25, 0.95), rgba(12, 12, 16, 0.98));
+  border: 1px solid rgba(88, 101, 242, 0.25);
+  border-radius: var(--radius-xl);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+  position: relative;
+  overflow: hidden;
+  transition: border-color var(--transition-base), box-shadow var(--transition-base);
+}
+
+.discord-promo-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4px;
+  height: 100%;
+  background: var(--color-discord);
+}
+
+.discord-promo-card:hover {
+  border-color: rgba(88, 101, 242, 0.5);
+  box-shadow: 0 15px 50px rgba(88, 101, 242, 0.15);
+}
+
+.discord-promo-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: 4px 12px;
+  background: rgba(88, 101, 242, 0.12);
+  border: 1px solid rgba(88, 101, 242, 0.3);
+  border-radius: var(--radius-full);
+  font-size: var(--fs-xs);
+  color: var(--color-discord);
+  font-weight: var(--fw-medium);
+  letter-spacing: var(--ls-wide);
+  text-transform: uppercase;
+  margin-bottom: var(--space-3);
+}
+
+.discord-promo-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #57F287;
+  box-shadow: 0 0 8px #57F287;
+}
+
+.discord-promo-title {
+  font-family: var(--font-display);
+  font-size: var(--fs-2xl);
+  letter-spacing: var(--ls-wide);
+  color: var(--color-text);
+  margin-bottom: var(--space-2);
+}
+
+.discord-promo-desc {
+  font-size: var(--fs-base);
+  color: var(--color-text-muted);
+  max-width: 580px;
+  line-height: var(--lh-base);
+}
+
+.discord-btn {
+  background: var(--color-discord) !important;
+  border-color: var(--color-discord) !important;
+  color: #ffffff !important;
+  white-space: nowrap;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-3);
+  box-shadow: 0 0 20px rgba(88, 101, 242, 0.3);
+  transition: all var(--transition-base) !important;
+}
+
+.discord-btn:hover {
+  background: #4752C4 !important;
+  box-shadow: 0 0 30px rgba(88, 101, 242, 0.5) !important;
+  transform: translateY(-2px);
+}
+
+@media (max-width: 900px) {
+  .discord-promo-card {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: var(--space-6);
+    gap: var(--space-6);
+  }
+
+  .discord-btn {
+    width: 100%;
+    justify-content: center;
+  }
+}
+

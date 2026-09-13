@@ -1,0 +1,739 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="MILO — Developer, Creator & Roblox Game Developer. Proyectos, skills y más." />
+  <meta name="theme-color" content="#080808" />
+  <title>MILO — Developer / Creator</title>
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="MILO — Developer / Creator" />
+  <meta property="og:description"
+    content="Desarrollador de videojuegos, creador de proyectos y entusiasta de la tecnología." />
+  <meta property="og:type" content="website" />
+
+  <!-- Preconnect Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+  <!-- CSS — Sistema de diseño (orden importa) -->
+  <link rel="stylesheet" href="src/styles/variables.css" />
+  <link rel="stylesheet" href="src/styles/reset.css" />
+  <link rel="stylesheet" href="src/styles/base.css" />
+  <link rel="stylesheet" href="src/styles/effects.css" />
+  <link rel="stylesheet" href="src/styles/animations.css" />
+
+  <!-- CSS — Componentes -->
+  <link rel="stylesheet" href="src/styles/intro.css" />
+  <link rel="stylesheet" href="src/styles/navbar.css" />
+  <link rel="stylesheet" href="src/styles/hero.css" />
+  <link rel="stylesheet" href="src/styles/about.css" />
+  <link rel="stylesheet" href="src/styles/stats.css" />
+  <link rel="stylesheet" href="src/styles/projects.css" />
+  <link rel="stylesheet" href="src/styles/skills.css" />
+  <link rel="stylesheet" href="src/styles/languages.css" />
+  <link rel="stylesheet" href="src/styles/socials.css" />
+  <link rel="stylesheet" href="src/styles/player.css" />
+  <link rel="stylesheet" href="src/styles/footer.css" />
+  <link rel="stylesheet" href="src/styles/responsive.css" />
+</head>
+
+<body>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       EFECTOS GLOBALES
+  ═══════════════════════════════════════════════════════════ -->
+  <div id="grain-overlay" aria-hidden="true"></div>
+  <div id="vignette" aria-hidden="true"></div>
+  <div id="scanlines" aria-hidden="true"></div>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       MEDIA DE FONDO
+       VIDEO: Coloca tu archivo en assets/video/background.mp4
+       AUDIO: Coloca tu archivo en assets/audio/asi-soy.mp3
+  ═══════════════════════════════════════════════════════════ -->
+  <video id="bg-video" muted loop playsinline preload="auto" aria-hidden="true">
+    <source src="assets/video/Santa Fe Klan - Así Soy (Lyric Video) - Santa Fe Klan Official (1080p, h264).mp4"
+      type="video/mp4" />
+    <source src="assets/video/background.mp4" type="video/mp4" />
+  </video>
+
+  <audio id="bg-audio" preload="metadata" loop>
+    <source src="assets/audio/Santa Fe Klan - Así Soy.mp3" type="audio/mpeg" />
+    <source src="assets/audio/asi-soy.mp3" type="audio/mpeg" />
+  </audio>
+
+  <div id="bg-overlay" aria-hidden="true"></div>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       PANTALLA DE ENTRADA
+  ═══════════════════════════════════════════════════════════ -->
+  <div id="intro-screen" role="dialog" aria-label="Pantalla de bienvenida" aria-modal="true">
+
+    <div class="intro-content">
+
+      <div class="intro-line-top" aria-hidden="true"></div>
+
+      <div class="intro-subtitle">Developer &nbsp;/&nbsp; Creator</div>
+
+      <h1 class="intro-name glitch-text" data-text="MILO">MILO</h1>
+
+      <div class="intro-divider" aria-hidden="true"></div>
+
+      <button id="intro-enter-btn" class="intro-btn" aria-label="Entrar al portfolio de Milo">
+        ENTRAR
+        <span class="intro-btn-arrow" aria-hidden="true">→</span>
+      </button>
+
+      <p class="intro-note">Click o cualquier tecla para continuar</p>
+
+      <div class="intro-line-bottom" aria-hidden="true"></div>
+
+    </div>
+
+    <span class="intro-year">© 2026</span>
+    <span class="intro-location">Milo &nbsp;·&nbsp; Portfolio</span>
+
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       NAVBAR
+  ═══════════════════════════════════════════════════════════ -->
+  <nav id="navbar" aria-label="Navegación principal">
+    <a href="#hero" class="nav-logo">M<span>.</span></a>
+
+    <!-- Desktop links -->
+    <ul class="nav-links" role="list">
+      <li><a href="#about" class="nav-link">Sobre mí</a></li>
+      <li><a href="#projects" class="nav-link">Proyectos</a></li>
+      <li><a href="#skills" class="nav-link">Skills</a></li>
+      <li><a href="#socials" class="nav-link">Redes</a></li>
+    </ul>
+
+    <!-- Toggle móvil -->
+    <button id="nav-toggle" class="nav-toggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="nav-mobile">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+    <!-- Menú móvil -->
+    <div id="nav-mobile" class="nav-mobile" role="menu">
+      <a href="#about" class="nav-link" role="menuitem">Sobre mí</a>
+      <a href="#projects" class="nav-link" role="menuitem">Proyectos</a>
+      <a href="#skills" class="nav-link" role="menuitem">Skills</a>
+      <a href="#languages" class="nav-link" role="menuitem">Idiomas</a>
+      <a href="#socials" class="nav-link" role="menuitem">Redes</a>
+    </div>
+  </nav>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       HERO
+  ═══════════════════════════════════════════════════════════ -->
+  <section id="hero" aria-label="Presentación principal">
+    <div class="hero-inner">
+
+      <div class="hero-pre">
+        <span class="hero-pre-dot" aria-hidden="true"></span>
+        <span class="hero-pre-text">Portfolio Personal</span>
+      </div>
+
+      <h1 class="hero-name">MILO</h1>
+
+      <p class="hero-role">
+        Developer
+        <span class="hero-role-separator" aria-hidden="true">/</span>
+        Creator
+      </p>
+
+      <div class="hero-tags" role="list">
+        <span class="hero-tag" role="listitem">Roblox Developer</span>
+        <span class="hero-tag" role="listitem">Lua / Luau</span>
+        <span class="hero-tag" role="listitem">Web Dev</span>
+        <span class="hero-tag" role="listitem">AI Projects</span>
+      </div>
+
+      <p class="hero-desc">
+        Desarrollador de videojuegos, creador de proyectos y entusiasta de la tecnología.
+      </p>
+
+      <div class="hero-cta">
+        <a href="#projects" class="btn-primary" aria-label="Ver proyectos">
+          Ver Proyectos
+        </a>
+        <a href="#socials" class="btn-outline" aria-label="Contactar por redes sociales">
+          Contacto
+        </a>
+      </div>
+
+    </div>
+
+    <!-- Número decorativo -->
+    <span class="hero-deco-number" aria-hidden="true">01</span>
+
+    <!-- Scroll indicator -->
+    <div class="hero-scroll" aria-hidden="true">
+      <span class="hero-scroll-text">Scroll</span>
+      <div class="hero-scroll-line"></div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       SOBRE MÍ
+  ═══════════════════════════════════════════════════════════ -->
+  <section id="about" aria-labelledby="about-title">
+    <div class="container">
+
+      <h2 id="about-title" class="section-title anim-init">Sobre mí</h2>
+
+      <div class="about-grid">
+
+        <!-- Texto -->
+        <div class="about-left anim-slide-left anim-delay-1">
+          <span class="about-label">Quién soy</span>
+          <div class="about-text">
+            <p>
+              Soy una persona interesada en la <strong>programación</strong>, el
+              <strong>desarrollo de videojuegos</strong> y las nuevas tecnologías.
+            </p>
+            <p>
+              Principalmente trabajo con <strong>Roblox Studio</strong> y <strong>Lua/Luau</strong>,
+              creando sistemas, mecánicas y experiencias interactivas.
+            </p>
+            <p>
+              También utilizo herramientas de <strong>Inteligencia Artificial</strong> como apoyo
+              para aprender, desarrollar proyectos, investigar tecnologías y resolver problemas.
+            </p>
+          </div>
+          <div class="about-signature" aria-hidden="true">MILO</div>
+        </div>
+
+        <!-- Cards -->
+        <div class="about-right">
+          <div class="about-card about-card-accent anim-init anim-delay-2">
+            <div class="about-card-icon" aria-hidden="true">🎮</div>
+            <h3 class="about-card-title">Game Developer</h3>
+            <p class="about-card-text">Creo sistemas y experiencias interactivas en Roblox Studio utilizando Lua/Luau.
+            </p>
+          </div>
+
+          <div class="about-card anim-init anim-delay-3">
+            <div class="about-card-icon" aria-hidden="true">🤖</div>
+            <h3 class="about-card-title">AI Enthusiast</h3>
+            <p class="about-card-text">Integro herramientas de IA en mi flujo de trabajo para potenciar el desarrollo y
+              el aprendizaje.</p>
+          </div>
+
+          <div class="about-card anim-init anim-delay-4">
+            <div class="about-card-icon" aria-hidden="true">🌐</div>
+            <h3 class="about-card-title">Web & Tech</h3>
+            <p class="about-card-text">Interesado en HTML, CSS y tecnologías web. Siempre explorando nuevas
+              herramientas.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       ESTADÍSTICAS
+  ═══════════════════════════════════════════════════════════ -->
+  <section id="stats" aria-labelledby="stats-title">
+    <div class="container">
+      <h2 id="stats-title" class="sr-only">Estadísticas</h2>
+
+      <div class="stats-grid">
+
+        <div class="stat-item anim-init">
+          <span class="stat-value" aria-label="Roblox">Roblox</span>
+          <span class="stat-label">Plataforma principal</span>
+        </div>
+
+        <div class="stat-item anim-init anim-delay-2">
+          <span class="stat-value" aria-label="Lua y Luau">Lua/Luau</span>
+          <span class="stat-label">Lenguaje principal</span>
+        </div>
+
+        <div class="stat-item anim-init anim-delay-3">
+          <span class="stat-value" aria-label="Roblox Studio">Studio</span>
+          <span class="stat-label">Motor de desarrollo</span>
+        </div>
+
+        <div class="stat-item anim-init anim-delay-4">
+          <span class="stat-value" aria-label="Inteligencia Artificial">AI</span>
+          <span class="stat-label">Herramienta de desarrollo</span>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       PROYECTOS
+  ═══════════════════════════════════════════════════════════ -->
+  <section id="projects" aria-labelledby="projects-title">
+    <div class="container">
+
+      <h2 id="projects-title" class="section-title anim-init">Experiencia &amp; Proyectos</h2>
+
+      <div class="projects-grid">
+
+        <!-- Roblox Card -->
+        <article class="project-card anim-init anim-delay-1"
+          style="--card-accent: #c0392b; --card-accent-rgb: 192,57,43;"
+          aria-label="Proyecto: Desarrollo de videojuegos en Roblox Studio">
+          <div class="project-icon-wrapper" aria-hidden="true">🎮</div>
+          <span class="project-category">Desarrollo de Videojuegos</span>
+          <h3 class="project-title">Roblox Studio</h3>
+          <p class="project-type">Proyecto personal</p>
+          <div class="project-divider" aria-hidden="true"></div>
+
+          <ul class="project-highlights" aria-label="Highlights del proyecto">
+            <li class="project-highlight">
+              <span class="project-highlight-dot" aria-hidden="true"></span>
+              <span>Creación y desarrollo de videojuegos en Roblox Studio</span>
+            </li>
+            <li class="project-highlight">
+              <span class="project-highlight-dot" aria-hidden="true"></span>
+              <span>Programación de sistemas y mecánicas con Lua/Luau</span>
+            </li>
+            <li class="project-highlight">
+              <span class="project-highlight-dot" aria-hidden="true"></span>
+              <span>Un videojuego superó <strong>1.000.000 de visitas</strong></span>
+            </li>
+            <li class="project-highlight">
+              <span class="project-highlight-dot" aria-hidden="true"></span>
+              <span>Diseño, programación, pruebas y mejora continua</span>
+            </li>
+          </ul>
+
+          <div class="project-tags" aria-label="Tecnologías">
+            <span class="project-tag">Roblox Studio</span>
+            <span class="project-tag">Lua</span>
+            <span class="project-tag">Luau</span>
+            <span class="project-tag">Game Design</span>
+          </div>
+        </article>
+
+        <!-- AI Card -->
+        <article class="project-card card-ai anim-init anim-delay-2"
+          aria-label="Proyecto: Proyectos potenciados con Inteligencia Artificial">
+          <div class="project-icon-wrapper" aria-hidden="true">🤖</div>
+          <span class="project-category">Proyectos con IA</span>
+          <h3 class="project-title">Inteligencia Artificial</h3>
+          <p class="project-type">Proyectos personales</p>
+          <div class="project-divider" aria-hidden="true"></div>
+
+          <ul class="project-highlights" aria-label="Highlights del proyecto">
+            <li class="project-highlight">
+              <span class="project-highlight-dot" aria-hidden="true"></span>
+              <span>Uso de IA como apoyo para el desarrollo de proyectos</span>
+            </li>
+            <li class="project-highlight">
+              <span class="project-highlight-dot" aria-hidden="true"></span>
+              <span>Generación, análisis y mejora de código mediante IA</span>
+            </li>
+            <li class="project-highlight">
+              <span class="project-highlight-dot" aria-hidden="true"></span>
+              <span>Investigación de tecnologías y resolución de problemas</span>
+            </li>
+            <li class="project-highlight">
+              <span class="project-highlight-dot" aria-hidden="true"></span>
+              <span>Integración de IA como herramienta de productividad</span>
+            </li>
+          </ul>
+
+          <div class="project-tags" aria-label="Tecnologías">
+            <span class="project-tag">AI Tools</span>
+            <span class="project-tag">Prompt Engineering</span>
+            <span class="project-tag">Code Generation</span>
+            <span class="project-tag">Research</span>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       HABILIDADES
+  ═══════════════════════════════════════════════════════════ -->
+  <section id="skills" aria-labelledby="skills-title">
+    <div class="container">
+
+      <h2 id="skills-title" class="section-title anim-init">Conocimientos</h2>
+
+      <div class="skills-grid">
+
+        <!-- Web -->
+        <div class="skill-group anim-init anim-delay-1" aria-labelledby="group-web-title">
+          <div class="skill-group-header">
+            <span class="skill-group-icon" aria-hidden="true">🌐</span>
+            <h3 id="group-web-title" class="skill-group-title">Desarrollo Web</h3>
+          </div>
+          <div class="skill-badges" role="list">
+            <span class="skill-badge" data-level="Básico" role="listitem">HTML</span>
+            <span class="skill-badge" data-level="Básico" role="listitem">CSS</span>
+            <span class="skill-badge" data-level="Básico" role="listitem">Bootstrap</span>
+          </div>
+        </div>
+
+        <!-- Bases de datos -->
+        <div class="skill-group anim-init anim-delay-2" aria-labelledby="group-db-title">
+          <div class="skill-group-header">
+            <span class="skill-group-icon" aria-hidden="true">🗄️</span>
+            <h3 id="group-db-title" class="skill-group-title">Bases de Datos</h3>
+          </div>
+          <div class="skill-badges" role="list">
+            <span class="skill-badge" data-level="Básico" role="listitem">MySQL</span>
+          </div>
+        </div>
+
+        <!-- Videojuegos -->
+        <div class="skill-group anim-init anim-delay-3" aria-labelledby="group-game-title">
+          <div class="skill-group-header">
+            <span class="skill-group-icon" aria-hidden="true">🎮</span>
+            <h3 id="group-game-title" class="skill-group-title">Desarrollo de Videojuegos</h3>
+          </div>
+          <div class="skill-badges" role="list">
+            <span class="skill-badge" data-level="Avanzado" role="listitem">Roblox Studio</span>
+            <span class="skill-badge" data-level="Avanzado" role="listitem">Lua / Luau</span>
+          </div>
+        </div>
+
+        <!-- IA -->
+        <div class="skill-group group-ai anim-init anim-delay-4" aria-labelledby="group-ai-title">
+          <div class="skill-group-header">
+            <span class="skill-group-icon" aria-hidden="true">🤖</span>
+            <h3 id="group-ai-title" class="skill-group-title">Inteligencia Artificial</h3>
+          </div>
+          <div class="skill-badges" role="list">
+            <span class="skill-badge" data-level="Avanzado" role="listitem">Uso avanzado de IA</span>
+            <span class="skill-badge" data-level="Avanzado" role="listitem">Integración en proyectos</span>
+            <span class="skill-badge" data-level="Avanzado" role="listitem">Prompt Engineering</span>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Leyenda -->
+      <div class="skills-legend anim-fade">
+        <div class="skills-legend-item">
+          <span class="skills-legend-dot" style="background: var(--color-accent);" aria-hidden="true"></span>
+          <span>Avanzado</span>
+        </div>
+        <div class="skills-legend-item">
+          <span class="skills-legend-dot" style="background: rgba(240,240,240,0.25);" aria-hidden="true"></span>
+          <span>Básico</span>
+        </div>
+        <span class="skills-legend-note">Sin barras de progreso falsas — nivel real</span>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       IDIOMAS
+  ═══════════════════════════════════════════════════════════ -->
+  <section id="languages" aria-labelledby="languages-title">
+    <div class="container">
+
+      <h2 id="languages-title" class="section-title anim-init">Idiomas</h2>
+
+      <div class="languages-list" role="list">
+
+        <article class="language-card anim-init anim-delay-1" role="listitem" aria-label="Español — Idioma nativo">
+          <span class="language-flag" aria-hidden="true">🇪🇸</span>
+          <div class="language-info">
+            <span class="language-name">Español</span>
+            <span class="language-level">Idioma nativo</span>
+          </div>
+          <span class="language-code" aria-hidden="true">Native</span>
+        </article>
+
+        <article class="language-card anim-init anim-delay-2" role="listitem" aria-label="Inglés — Nivel A1">
+          <span class="language-flag" aria-hidden="true">🇬🇧</span>
+          <div class="language-info">
+            <span class="language-name">Inglés</span>
+            <span class="language-level">Nivel A1 — Curso UTN aprobado</span>
+          </div>
+          <span class="language-code" aria-hidden="true">A1</span>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       REDES SOCIALES
+  ═══════════════════════════════════════════════════════════ -->
+  <section id="socials" aria-labelledby="socials-title">
+    <div class="container">
+
+      <h2 id="socials-title" class="section-title anim-init">Redes</h2>
+
+      <div class="socials-grid" role="list">
+
+        <!-- Discord -->
+        <a id="social-discord" class="social-card discord anim-scale anim-delay-1" href="#" target="_blank"
+          rel="noopener noreferrer" aria-label="Discord — milo79 (abre en nueva pestaña)" role="listitem">
+          <div class="social-icon-wrapper" aria-hidden="true">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path
+                d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057c.002.024.016.046.036.06a19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028 14.09 14.09 0 0 0 1.226-1.994.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z" />
+            </svg>
+          </div>
+          <div class="social-info">
+            <div class="social-platform">Discord</div>
+            <div class="social-handle">milo79</div>
+          </div>
+          <span class="social-arrow" aria-hidden="true">↗</span>
+        </a>
+
+        <!-- Instagram -->
+        <a id="social-instagram" class="social-card instagram anim-scale anim-delay-2"
+          href="https://www.instagram.com/miloxy88" target="_blank" rel="noopener noreferrer"
+          aria-label="Instagram — milo88 (abre en nueva pestaña)" role="listitem">
+          <div class="social-icon-wrapper" aria-hidden="true">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+              <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+              <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
+            </svg>
+          </div>
+          <div class="social-info">
+            <div class="social-platform">Instagram</div>
+            <div class="social-handle">@miloxy88</div>
+          </div>
+          <span class="social-arrow" aria-hidden="true">↗</span>
+        </a>
+
+        <!-- Spotify -->
+        <a id="social-spotify" class="social-card spotify anim-scale anim-delay-3"
+          href="https://open.spotify.com/user/31c763orz32pei5ri5sep7ysuhwq" target="_blank" rel="noopener noreferrer"
+          aria-label="Spotify — Milo (abre en nueva pestaña)" role="listitem">
+          <div class="social-icon-wrapper" aria-hidden="true">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path
+                d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z" />
+            </svg>
+          </div>
+          <div class="social-info">
+            <div class="social-platform">Spotify</div>
+            <div class="social-handle">Milo</div>
+          </div>
+          <span class="social-arrow" aria-hidden="true">↗</span>
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       SERVIDORES / COMUNIDAD DISCORD
+  ═══════════════════════════════════════════════════════════ -->
+  <section id="discord-promo" aria-labelledby="discord-promo-title">
+    <div class="container">
+      <div class="discord-promo-card anim-init">
+        <div class="discord-promo-content">
+          <div class="discord-promo-badge">
+            <span class="discord-promo-dot" aria-hidden="true"></span>
+            <span>Comunidad Oficial</span>
+          </div>
+          <h2 id="discord-promo-title" class="discord-promo-title">Servidor de Discord</h2>
+          <p class="discord-promo-desc">
+            Únete a mi comunidad oficial para estar al tanto de mis proyectos, contactarme, interactuar con mi gente o
+            si te
+            interesa
+            tener un
+            sitio parecido.
+          </p>
+        </div>
+        <div class="discord-promo-action">
+          <a id="discord-server-link" class="btn-primary discord-btn" href="https://discord.gg/weSBQGUKCm"
+            target="_blank" rel="noopener noreferrer"
+            aria-label="Unirse al servidor de Discord (abre en nueva pestaña)">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path
+                d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057c.002.024.016.046.036.06a19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028 14.09 14.09 0 0 0 1.226-1.994.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z" />
+            </svg>
+            <span>Unirse al Servidor</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       FOOTER
+  ═══════════════════════════════════════════════════════════ -->
+  <footer id="footer" aria-label="Footer">
+    <div class="container">
+      <div class="footer-inner">
+
+        <div class="footer-name" aria-label="MILO">MILO</div>
+
+        <p class="footer-tagline">
+          Made with <span>code</span>, creativity &amp; AI.
+        </p>
+
+        <div class="footer-divider" aria-hidden="true"></div>
+
+        <nav class="footer-nav" aria-label="Navegación footer">
+          <a href="#about">Sobre mí</a>
+          <a href="#projects">Proyectos</a>
+          <a href="#skills">Skills</a>
+          <a href="#socials">Redes</a>
+        </nav>
+
+        <p class="footer-copy">
+          <small>&copy; 2026 Milo. Todos los derechos reservados.</small>
+        </p>
+
+      </div>
+    </div>
+  </footer>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       REPRODUCTOR FLOTANTE
+  ═══════════════════════════════════════════════════════════ -->
+  <div id="music-player" class="hidden" role="region" aria-label="Reproductor de música">
+    <!-- Info canción -->
+    <div class="player-song-info">
+      <div id="player-disc" class="player-disc" aria-hidden="true"></div>
+      <div class="player-text">
+        <div class="player-title">Así Soy</div>
+        <div class="player-artist">La Santa Grifa</div>
+      </div>
+    </div>
+
+    <!-- Progreso -->
+    <div class="player-progress-wrapper" aria-label="Progreso de reproducción">
+      <div id="player-progress-bar" class="player-progress-bar" role="slider" aria-label="Posición de reproducción"
+        aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" tabindex="0">
+        <div id="player-progress-fill" class="player-progress-fill"></div>
+      </div>
+      <div class="player-time">
+        <span id="player-time-current">0:00</span>
+        <span id="player-time-duration">0:00</span>
+      </div>
+    </div>
+
+    <!-- Controles -->
+    <div class="player-controls">
+      <button id="player-mute" class="player-btn" aria-label="Silenciar">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5" />
+          <path d="M15.54 8.46a5 5 0 0 1 0 7.07" />
+          <path d="M19.07 4.93a10 10 0 0 1 0 14.14" />
+        </svg>
+      </button>
+
+      <button id="player-play" class="player-btn player-btn-play" aria-label="Reproducir">
+        <svg width="12" height="12" viewBox="0 0 12 12" fill="currentColor">
+          <path d="M2 1l9 5-9 5V1z" />
+        </svg>
+      </button>
+
+      <div class="player-volume" aria-label="Control de volumen">
+        <input id="player-volume" type="range" class="player-volume-slider" min="0" max="1" step="0.05" value="0.8"
+          aria-label="Volumen" />
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       SCRIPTS — en orden de dependencias
+  ═══════════════════════════════════════════════════════════ -->
+
+  <!-- Configuración (debe ir primero) -->
+  <script src="src/config/profile.js"></script>
+
+  <!-- Utilidades -->
+  <script src="src/utils/SyncController.js"></script>
+  <script src="src/utils/ScrollObserver.js"></script>
+  <script src="src/utils/Parallax.js"></script>
+  <script src="src/utils/CounterAnimation.js"></script>
+
+  <!-- Componentes -->
+  <script src="src/components/IntroScreen.js"></script>
+  <script src="src/components/Navbar.js"></script>
+  <script src="src/components/MusicPlayer.js"></script>
+
+  <!-- Inicialización principal -->
+  <script>
+    (function () {
+      'use strict';
+
+      // ── INICIALIZACIÓN AL CARGAR ─────────────────────────────
+      document.addEventListener('DOMContentLoaded', function () {
+
+        // 1. Aplicar links de redes sociales desde config
+        const socials = window.PROFILE?.socials || {};
+        if (socials.discord?.url && socials.discord.url !== '#') {
+          const el = document.getElementById('social-discord');
+          if (el) el.href = socials.discord.url;
+        }
+        if (socials.discordServer?.url && socials.discordServer.url !== '#') {
+          const el = document.getElementById('discord-server-link');
+          if (el) el.href = socials.discordServer.url;
+        }
+        if (socials.instagram?.url && socials.instagram.url !== '#') {
+          const el = document.getElementById('social-instagram');
+          if (el) el.href = socials.instagram.url;
+        }
+        if (socials.spotify?.url && socials.spotify.url !== '#') {
+          const el = document.getElementById('social-spotify');
+          if (el) el.href = socials.spotify.url;
+        }
+
+        // 2. Instanciar SyncController
+        const videoEl = document.getElementById('bg-video');
+        const audioEl = document.getElementById('bg-audio');
+        const syncController = new SyncController(videoEl, audioEl, 0.15);
+
+        // Volumen inicial
+        syncController.setVolume(0.8);
+
+        // 3. Inicializar componentes
+        initNavbar();
+        initMusicPlayer(syncController);
+
+        // 4. Pantalla de entrada
+        initIntroScreen(syncController, function onEnter() {
+          // Inicializar efectos visuales después de entrar
+          const scrollObserver = new ScrollObserver();
+          CounterAnimation.init();
+
+          // Parallax en el video
+          const videoParallax = new Parallax(videoEl, 0.012);
+
+          // Cleanup al salir de la página
+          window.addEventListener('beforeunload', () => {
+            videoParallax.destroy();
+            scrollObserver.destroy();
+            syncController.destroy();
+          });
+        });
+
+        // 5. CSS variables dinámicas desde config (colores)
+        const colors = window.PROFILE?.colors;
+        if (colors) {
+          const root = document.documentElement;
+          if (colors.accent) root.style.setProperty('--color-accent', colors.accent);
+          if (colors.accentDark) root.style.setProperty('--color-accent-dark', colors.accentDark);
+          if (colors.warm) root.style.setProperty('--color-warm', colors.warm);
+        }
+
+      });
+
+    })();
+  </script>
+
+</body>
+
+</html>
